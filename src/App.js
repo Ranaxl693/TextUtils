@@ -20,17 +20,21 @@ function App() {
     }, 1500);
   };
 
-  const toggleDarkMode = () => {
-    if (mode === "light") {
-      setMode("dark");
-      document.body.style.backgroundColor = "#042743";
-      showAlert("Dark mode has been enabled!", "success");
-      document.title = "Text Utils - Dark Mode";
+  const toggleDarkMode = (cls) => {
+    if(cls) {
+      console.log(cls);
     } else {
-      setMode("light");
-      document.body.style.backgroundColor = "White";
-      showAlert("Light mode has been enabled!", "success");
-      document.title = "Text Utils - Light Mode";
+      if (mode === "light") {
+        setMode("dark");
+        document.body.style.backgroundColor = "#042743";
+        showAlert("Dark mode has been enabled!", "success");
+        document.title = "Text Utils - Dark Mode";
+      } else {
+        setMode("light");
+        document.body.style.backgroundColor = "White";
+        showAlert("Light mode has been enabled!", "success");
+        document.title = "Text Utils - Light Mode";
+      }
     }
   };
 

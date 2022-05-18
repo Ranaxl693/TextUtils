@@ -33,7 +33,7 @@ export default function TextUtils(props) {
     }
 
     const wordCount = (txtcase) => {
-        return txtcase.split(" ").filter(function(getText) { return getText !== '' }).length;
+        return txtcase.split(/\s+/).filter(function(getText) { return getText !== '' }).length;
     }
 
     return (
@@ -41,9 +41,9 @@ export default function TextUtils(props) {
             <h2>Text Utils</h2>
             <textarea className="form-control mt-3" style={{backgroundColor: props.mode === 'dark' ? 'grey' : 'white' , color: props.mode === 'dark' ? 'white' : 'black' }} value={text} onChange={handleOnChange} placeholder="Start Writing..." rows="8"></textarea>
             <div className="btn-wrapper my-3">
-                <button type="button" className="btn btn-primary mr-2" onClick={() => handleCases('uppercase')}>Change to Uppercase</button>
-                <button type="button" className="btn btn-secondary mx-2" onClick={() => handleCases('lowercase')}>Change to Lowercase</button>
-                <button type="button" className="btn btn-danger mx-2" onClick={() => handleCases('cleartext')}>Clear all</button>
+                <button type="button" disabled={text.length===0} className="btn btn-primary mr-2" onClick={() => handleCases('uppercase')}>Change to Uppercase</button>
+                <button type="button" disabled={text.length===0} className="btn btn-secondary mx-2" onClick={() => handleCases('lowercase')}>Change to Lowercase</button>
+                <button type="button" disabled={text.length===0} className="btn btn-danger mx-2" onClick={() => handleCases('cleartext')}>Clear all</button>
             </div>
             <div className="wordresults my-3" style={{color: props.mode === 'dark' ? 'white' : '#042743'}}>
                 <h3>Results:</h3>
